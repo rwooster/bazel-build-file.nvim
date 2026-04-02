@@ -14,6 +14,9 @@ Opens the nearest `BUILD.bazel` or `BUILD` file and uses treesitter to jump to t
 
 With [lazy.nvim](https://github.com/folke/lazy.nvim):
 
+<details>
+<summary>lazy.nvim spec</summary>
+
 ```lua
 {
     'rwooster/bazel-build-file.nvim',
@@ -28,20 +31,35 @@ With [lazy.nvim](https://github.com/folke/lazy.nvim):
 }
 ```
 
+</details>
+
 ## Usage
 
 Run `:BazelBuildFile` or press `<leader>bb` (if mapped as above).
 
 ## Configuration
 
-Works out of the box with no configuration. All options can be set via `vim.g` or lazy.nvim `opts`:
+Works out of the box with no configuration. The defaults are:
+
+Defaults
+
+```lua
+{
+    build_files = { 'BUILD.bazel', 'BUILD' }, -- filenames to search for, in priority order
+    boundary = 'git',                         -- 'git' | 'workspace' | false
+    center_on_jump = true,                    -- center cursor after jumping to rule
+}
+```
+
+All options can be set via `vim.g` or lazy.nvim `opts`:
+
+<details>
+<summary>Configuration examples</summary>
 
 ```lua
 -- Option 1: vim.g (set before plugin loads or at any time)
 vim.g.bazel_build_file_nvim_config = {
-    build_files = { 'BUILD.bazel', 'BUILD' },  -- filenames to search for, in priority order
-    boundary = 'git',                           -- 'git' | 'workspace' | false
-    center_on_jump = true,                      -- center cursor after jumping to rule
+    boundary = 'workspace',
 }
 
 -- Option 2: lazy.nvim opts (calls setup() automatically)
@@ -56,6 +74,8 @@ vim.g.bazel_build_file_nvim_config = {
     },
 }
 ```
+
+</details>
 
 ### Options
 
