@@ -6,9 +6,8 @@ Opens the nearest `BUILD.bazel` or `BUILD` file and uses treesitter to jump to t
 
 ## Requirements
 
-- Neovim 0.9+
-- [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
-- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) with the `python` parser installed (Starlark is parsed as Python)
+- Neovim 0.12+
+- [libbazel.nvim](https://github.com/rwooster/libbazel.nvim) (brings plenary.nvim and treesitter python parser)
 
 ## Installation
 
@@ -21,8 +20,7 @@ With [lazy.nvim](https://github.com/folke/lazy.nvim):
 {
     'rwooster/bazel-build-file.nvim',
     dependencies = {
-        'nvim-lua/plenary.nvim',
-        'nvim-treesitter/nvim-treesitter',
+        'rwooster/libbazel.nvim',
     },
     cmd = 'BazelBuildFile',
     keys = {
@@ -66,8 +64,7 @@ vim.g.bazel_build_file_nvim_config = {
 {
     'rwooster/bazel-build-file.nvim',
     dependencies = {
-        'nvim-lua/plenary.nvim',
-        'nvim-treesitter/nvim-treesitter',
+        'rwooster/libbazel.nvim',
     },
     opts = {
         boundary = 'workspace',
